@@ -8,7 +8,7 @@
         <span class="input-group-addon" id="sizing-addon1">
           <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
         </span>
-        <input type="text" #apiId class="form-control" placeholder="Kodas" aria-describedby="sizing-addon1">
+        <input type="text" #apiId class="form-control" placeholder="Kodas" aria-describedby="sizing-addon1" value="8b14eb2c5beed13dd28c80dffdf74d42">
       </div>
     </div>
     <div class="col-lg-6">
@@ -17,7 +17,7 @@
          <!-- (input)="onSearchChange($event.target.value)" -->
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" (click)="onChange(city.value, apiId.value)">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-search" aria-hidden="true" (keyup.enter)="onChange(city.value, apiId.value)"></span>
           </button>
         </span>
       </div>
@@ -27,26 +27,28 @@
 <section id="weather" class="container">
   <div>
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist" *ngFor="let weather of cityList">
-      <li role="presentation">
-        <a href="#{{weather.name}}" aria-controls=(weather.name) role="tab" data-toggle="tab">{{weather.name}}</a>
+    <ul class="nav nav-tabs" role="tablist active">
+      <li role="presentation" *ngFor="let weather of cityList" class="nav-link">
+        <a href="#{{weather.name}}" aria-controls="" role="tab" data-toggle="tab">{{weather.name}}</a>
       </li>
     </ul>
     <!-- Tab panes -->
-    <div class="tab-content" *ngFor="let weather of cityList">
-      <div role="tabpanel" class="tab-pane" id="{{weather.name}}">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" *ngFor="let weather of cityList" id="{{weather.name}}">
         <p>Temperatūra: {{weather.main.temp}}</p>
         <p>Slėgis: {{weather.main.pressure}}</p>
-        <p>Drėgmė: {{weather.main.humidity}}</p>
+        <p>Drėgmė: {{weather.main.humidity}}%</p>
         <p>Aprašymas: {{weather.weather[0].description}}</p>
+        <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png">
       </div>
     </div>
+     <!-- - 32)/1.8 -->
 
   </div>
-  <div>
+  <!-- <div> -->
   
     <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
+    <!-- <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">
         <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
       </li>
@@ -60,14 +62,14 @@
         <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
       </li>
     </ul>
-  
+   -->
     <!-- Tab panes -->
-    <div class="tab-content">
+    <!-- <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="home">...</div>
       <div role="tabpanel" class="tab-pane" id="profile">wrhyef</div>
       <div role="tabpanel" class="tab-pane" id="messages">...</div>
       <div role="tabpanel" class="tab-pane" id="settings">.hrfhrefh.</div>
     </div>
-  
-  </div>
+   -->
+  <!-- </div> -->
 </section>
