@@ -1,0 +1,18 @@
+section#hero {
+    background: url('../../assets/img/hero.jpg') no-repeat center;
+    background-size: cover;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    color: #556f7b;
+    font-size: 60px;
+}
+section#weather {
+    margin-top: 60px;
+}
+section#weatherSearch{
+    margin-top: 60px;
+}

@@ -1,0 +1,73 @@
+<section id="hero" class="container-fluid">
+  <h1>Orai</h1>
+</section>
+<section id="weatherSearch" class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon1">
+          <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+        </span>
+        <input type="text" #apiId class="form-control" placeholder="Kodas" aria-describedby="sizing-addon1">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input #city type="text" class="form-control" placeholder="Miestas">
+         <!-- (input)="onSearchChange($event.target.value)" -->
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" (click)="onChange(city.value, apiId.value)">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="weather" class="container">
+  <div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" *ngFor="let weather of cityList">
+      <li role="presentation">
+        <a href="#{{weather.name}}" aria-controls=(weather.name) role="tab" data-toggle="tab">{{weather.name}}</a>
+      </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content" *ngFor="let weather of cityList">
+      <div role="tabpanel" class="tab-pane" id="{{weather.name}}">
+        <p>Temperatūra: {{weather.main.temp}}</p>
+        <p>Slėgis: {{weather.main.pressure}}</p>
+        <p>Drėgmė: {{weather.main.humidity}}</p>
+        <p>Aprašymas: {{weather.weather[0].description}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div>
+  
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+      </li>
+      <li role="presentation">
+        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a>
+      </li>
+      <li role="presentation">
+        <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a>
+      </li>
+      <li role="presentation">
+        <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">...</div>
+      <div role="tabpanel" class="tab-pane" id="profile">wrhyef</div>
+      <div role="tabpanel" class="tab-pane" id="messages">...</div>
+      <div role="tabpanel" class="tab-pane" id="settings">.hrfhrefh.</div>
+    </div>
+  
+  </div>
+</section>
